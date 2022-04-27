@@ -89,6 +89,10 @@ function validarUsuario(email, password) {
 	};
 }
 
+function salir() {
+	document.write('saliste');
+}
+
 function menuMiembros() {
 	console.log("1. reservar entrada \n");
 	console.log("2. ver mi entrada \n");
@@ -137,7 +141,6 @@ function reservarEntradas() {
 		alert('no quedan más entradas :(');
 		menuMiembros();
 	}
-
 	alert(`reservaste ${cantidadEntradas} entradas.`);
 	menuMiembros();
 
