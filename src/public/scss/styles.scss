@@ -1,0 +1,88 @@
+@import 'card';
+
+body {
+	background-color: rgb(54, 54, 54);
+	font-family: 'Mukta', sans-serif;
+	/* background-color: white; */
+}
+
+#eventos-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1.5rem;
+	/* grid-auto-rows: minmax(300px, auto); */
+	grid-template-rows: 1fr;
+	grid-auto-rows: 17rem;
+
+	.div-evento {
+		width: 100%;
+		height: 100%;
+		/* height: 400px; */
+		overflow: hidden;
+
+		img {
+			object-fit: cover;
+			object-position: center;
+			width: 100%;
+		}
+
+		form {
+			position: absolute;
+		}
+
+		button {
+			/* display: none; */
+			position: absolute;
+		}
+
+		button:hover {
+			// display: block;
+			// position: relative;
+		}
+
+		.grid-col-span-2 {
+			grid-column: span 2;
+		}
+
+		.grid-row-span-2 {
+			grid-row: span 2;
+		}
+
+	}
+
+	#evento-1 {
+		// border: solid red;
+		grid-column: span 2;
+		grid-row-end: span 2;
+	}
+
+	#evento-3 {
+		/* border: solid red; */
+		grid-column-start: 3;
+		grid-row-start: 2;
+	}
+
+	#evento-5 {
+		background-color: rgb(20, 20, 20);
+		grid-column-start: 4;
+		grid-row-start: 1;
+		grid-row-end: 3;
+		object-position: center;
+		height: 100%;
+		display: flex;
+	}
+
+	#evento-5 img {
+		object-fit: contain;
+	}
+
+	#evento-4 {
+		grid-row: span 2;
+
+		img {
+			object-fit: cover;
+			height: 100%;
+		}
+	}
+
+}
