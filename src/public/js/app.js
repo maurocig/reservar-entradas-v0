@@ -2,13 +2,23 @@
 import { Entrada, crearEntrada, calcularPrecio } from './entradas.js';
 import { Evento } from './eventos.js';
 import { Usuario } from './usuarios.js';
+let entradasGuardadas;
+let entradas;
+let total;
+
+document.addEventListener("DOMContentLoaded", () => {
+	entradasGuardadas = JSON.parse(localStorage.getItem('Entradas Reservadas')) || [];
+	total = JSON.parse(localStorage.getItem('Total')) || 0;
+	entradas = entradasGuardadas;
+	conteo.innerText = `Total: ${entradas.length} entradas .... $${total}`;
+})
 
 // Variables
 let entradasReservadas = [];
-let entradas = [];
+// let entradas = misEntradas || [];
 const eventos = [];
 const username = 'Juan01';
-let total = 0;
+// let total = localStorage.getItem('Total') || 0;
 
 let eventosGrid = document.querySelector('#eventos-grid');
 let conteo = document.querySelector('#conteo');
@@ -66,21 +76,19 @@ for (let evento of eventos) {
 			entradas.push(nuevaEntrada);
 			total += evento.precio;
 		}
+		let misEntradas = entradas;
+		localStorage.setItem('Entradas Reservadas', JSON.stringify(misEntradas));
+		localStorage.setItem('Total', JSON.stringify(total));
 		console.log(`${cantidad} entradas para ${evento.nombre}......$${subtotal}`);
-		console.log(entradas);
+		// console.log(entradas);
 		conteo.innerText = `Total: ${entradas.length} entradas .... $${total}`;
 	});
 }
 
-let misEntradas = [];
-let formReservar = document.querySelector('#form-reservar');
-formReservar.addEventListener("submit", () => {
-	misEntradas = entradas;
-	localStorage.setItem('Entradas Reservadas', JSON.stringify(misEntradas));
-});
+// let formReservar = document.querySelector('#form-reservar');
 
-document.addEventListener("DOMContentLoaded", () => {
-	misEntradas = localStorage.getItem('misEntradas') || [];
+// formReservar.addEventListener("submit", () => {
+// 	misEntradas = entradas;
+// 	localStorage.setItem('Entradas Reservadas', JSON.stringify(misEntradas));
+// });
 
-	console.log(JSON.parse(misEntradas));
-})
