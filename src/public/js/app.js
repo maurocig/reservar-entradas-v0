@@ -53,6 +53,7 @@ for (let evento of eventos) {
 	divEvento.appendChild(img);
 	eventosGrid.appendChild(divEvento);
 
+
 	//// EVENTOS ////
 	form.addEventListener('submit', (e) => {
 		e.preventDefault();
@@ -69,5 +70,17 @@ for (let evento of eventos) {
 		console.log(entradas);
 		conteo.innerText = `Total: ${entradas.length} entradas .... $${total}`;
 	});
-
 }
+
+let misEntradas = [];
+let formReservar = document.querySelector('#form-reservar');
+formReservar.addEventListener("submit", () => {
+	misEntradas = entradas;
+	localStorage.setItem('Entradas Reservadas', JSON.stringify(misEntradas));
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+	misEntradas = localStorage.getItem('misEntradas') || [];
+
+	console.log(JSON.parse(misEntradas));
+})
