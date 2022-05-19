@@ -6,6 +6,15 @@ body {
 
 h2 {
   color: red;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+#btn-reset {
+  font-size: 18px;
+  display: inline-block;
+  padding: 0.3em 0.5em;
+  margin-bottom: 20px;
 }
 
 #eventos-grid {

@@ -17,14 +17,7 @@ const Entrada = function (nombreEvento, precio, username, eventoId) {
 
 function calcularPrecio(cantidad, precio) {
 	let multiplicacion = precio * cantidad;
-	subtotal = multiplicacion + serviceCharge;
-	// let resumen = document.createElement('p')
-	// document.body.appendChild(resumen);
-	// resumen.innerText =
-	// 	`${cantidad} entradas a 200 c/u: .......... ${multiplicacion}` + '\n' +
-	// 	`Service Charge: .................. ${serviceCharge}` + '\n' +
-	// 	`Subtotal: ............................. ${subtotal}`
-	// console.log(subtotal);
+	subtotal = multiplicacion;
 	return subtotal;
 }
 

@@ -85,6 +85,9 @@ for (let evento of eventos) {
 	});
 }
 
+let btnReset = querySelector('#btn-reset');
+btnReset.addEventListener('click');
+
 // let formReservar = document.querySelector('#form-reservar');
 
 // formReservar.addEventListener("submit", () => {
