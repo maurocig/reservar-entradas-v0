@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(54, 54, 54);
+  background-color: rgb(54, 54, 54) !important;
   font-family: "Mukta", sans-serif;
   /* background-color: white; */
 }

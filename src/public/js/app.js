@@ -113,7 +113,7 @@ function reservar() {
 	Swal.fire(
 		'Tus entradas ya están reservadas.',
 		`Reservaste ${entradasReservadas.length} entradas.`,
-		'question'
+		'success'
 	);
 }
 
