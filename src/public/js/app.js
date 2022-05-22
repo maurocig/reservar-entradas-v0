@@ -3,11 +3,11 @@ import { Entrada, crearEntrada, calcularPrecio } from './entradas.js';
 import { Evento } from './eventos.js';
 import { Usuario } from './usuarios.js';
 let entradasGuardadas;
-let entradas;
+let entradas = [];
 let total;
 
 document.addEventListener("DOMContentLoaded", () => {
-	entradasGuardadas = JSON.parse(localStorage.getItem('Entradas Reservadas')) || [];
+	entradasGuardadas = JSON.parse(localStorage.getItem('Entradas Guardadas')) || [];
 	total = JSON.parse(localStorage.getItem('Total')) || 0;
 	entradas = entradasGuardadas;
 	conteo.innerText = `Total: ${entradas.length} entradas .... $${total}`;
@@ -77,7 +77,7 @@ for (let evento of eventos) {
 			total += evento.precio;
 		}
 		let misEntradas = entradas;
-		localStorage.setItem('Entradas Reservadas', JSON.stringify(misEntradas));
+		localStorage.setItem('Entradas Guardadas', JSON.stringify(misEntradas));
 		localStorage.setItem('Total', JSON.stringify(total));
 		console.log(`${cantidad} entradas para ${evento.nombre}......$${subtotal}`);
 		// console.log(entradas);
@@ -85,8 +85,37 @@ for (let evento of eventos) {
 	});
 }
 
-let btnReset = querySelector('#btn-reset');
-btnReset.addEventListener('click');
+let btnReset = document.querySelector('#btn-reset');
+btnReset.addEventListener('click', () => {
+	console.log('limpiar apretado');
+	limpiar();
+});
+
+function limpiar() {
+	total = 0;
+	entradas = [];
+	localStorage.removeItem('Entradas Guardadas');
+	localStorage.removeItem('Total');
+	conteo.innerText = `Total: ${entradas.length} entradas .... $${total}`;
+}
+
+let btnReservar = document.querySelector('#btn-reservar');
+btnReservar.addEventListener('click', () => {
+	reservar();
+	console.log('reservado');
+})
+
+function reservar() {
+	entradasReservadas = entradas;
+	limpiar();
+	localStorage.setItem('Entradas Reservadas', JSON.stringify(entradasReservadas));
+	console.log(entradasReservadas);
+	Swal.fire(
+		'Tus entradas ya están reservadas.',
+		`Reservaste ${entradasReservadas.length} entradas.`,
+		'question'
+	);
+}
 
 // let formReservar = document.querySelector('#form-reservar');
 
