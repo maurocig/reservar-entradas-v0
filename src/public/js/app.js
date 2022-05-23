@@ -10,7 +10,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	entradasGuardadas = JSON.parse(localStorage.getItem('Entradas Guardadas')) || [];
 	total = JSON.parse(localStorage.getItem('Total')) || 0;
 	entradas = entradasGuardadas;
-	conteo.innerText = `Total: ${entradas.length} entradas .... $${total}`;
+	if (entradas.length > 0) {
+		conteo.innerText = `Carrito: ${entradas.length} entradas .... $${total}`;
+	} else {
+		conteo.innerText = 'Agregá tus entradas para verlas en el carrito.'
+	}
 })
 
 // Variables
@@ -22,6 +26,8 @@ const username = 'Juan01';
 
 let eventosGrid = document.querySelector('#eventos-grid');
 let conteo = document.querySelector('#conteo');
+
+let usuario = new Usuario('juan@gmail.com', 'juancito', 'juan01')
 
 // eventos.push(new Evento('La Skatomica', '6-2', 'El Club Bar', 'Honduras 5028', '6/2', '22:00', 200));
 eventos.push(new Evento(['Combustión Reggae', 'Sabancaya'], '14-3', 'Shambala House', 'Costa Rica 5673', '14-3', '22:00', 300));
@@ -71,7 +77,7 @@ for (let evento of eventos) {
 		let cantidad = input.value;
 		let subtotal = calcularPrecio(cantidad, evento.precio);
 		for (let i = 0; i < cantidad; i += 1) {
-			let nuevaEntrada = crearEntrada(evento.nombre, evento.precio, username, evento.getId());
+			let nuevaEntrada = crearEntrada(evento.nombre, evento.precio, usuario.username, evento.getId());
 			nuevaEntrada.makeId();
 			entradas.push(nuevaEntrada);
 			total += evento.precio;
@@ -81,7 +87,11 @@ for (let evento of eventos) {
 		localStorage.setItem('Total', JSON.stringify(total));
 		console.log(`${cantidad} entradas para ${evento.nombre}......$${subtotal}`);
 		// console.log(entradas);
-		conteo.innerText = `Total: ${entradas.length} entradas .... $${total}`;
+		if (entradas.length > 0) {
+			conteo.innerText = `Carrito: ${entradas.length} entradas .... $${total}`;
+		} else {
+			conteo.innerText = 'Agregá tus entradas para verlas en el carrito.'
+		}
 	});
 }
 
@@ -96,7 +106,7 @@ function limpiar() {
 	entradas = [];
 	localStorage.removeItem('Entradas Guardadas');
 	localStorage.removeItem('Total');
-	conteo.innerText = `Total: ${entradas.length} entradas .... $${total}`;
+	conteo.innerText = 'Agregá tus entradas para verlas en el carrito.'
 }
 
 let btnReservar = document.querySelector('#btn-reservar');
@@ -109,18 +119,15 @@ function reservar() {
 	entradasReservadas = entradas;
 	limpiar();
 	localStorage.setItem('Entradas Reservadas', JSON.stringify(entradasReservadas));
+	usuario.entradas.push(...entradasReservadas);
 	console.log(entradasReservadas);
 	Swal.fire(
-		'Tus entradas ya están reservadas.',
+		'Tus entradas fueron reservadas.',
 		`Reservaste ${entradasReservadas.length} entradas.`,
 		'success'
 	);
 }
 
-// let formReservar = document.querySelector('#form-reservar');
+let reservadas = document.querySelector('#reservadas');
 
-// formReservar.addEventListener("submit", () => {
-// 	misEntradas = entradas;
-// 	localStorage.setItem('Entradas Reservadas', JSON.stringify(misEntradas));
-// });
-
+export { entradasReservadas }
