@@ -1,0 +1,137 @@
+[
+	{
+		"artista": [
+			"Combustión Reggae",
+			"Sabancaya"
+		],
+		"imagen": "14-3",
+		"lugar": "Shambala House",
+		"direccion": "Costa Rica 5673",
+		"fecha": "14-3",
+		"horario": "22:00",
+		"precio": 300
+	},
+	{
+		"artista": "La Skatomica",
+		"imagen": "20-3",
+		"lugar": "El Club Bar",
+		"direccion": "Honduras 5028",
+		"fecha": "6/2",
+		"horario": "22:00",
+		"precio": 200
+	},
+	{
+		"artista": "Les Pistaches",
+		"imagen": "9-4",
+		"lugar": "Paseo Inmoral Social Club",
+		"direccion": "Cabrera 5100",
+		"fecha": "9-4",
+		"horario": "20:00",
+		"precio": 500
+	},
+	{
+		"artista": "Perro",
+		"imagen": "16-4",
+		"lugar": "Paseo Inmoral Social Club",
+		"direccion": "Cabrera 5100",
+		"fecha": "16-4",
+		"horario": "20:00",
+		"precio": 500
+	},
+	{
+		"artista": [
+			"Tchanko y Familia",
+			"DJ Jamming"
+		],
+		"imagen": "17-4",
+		"lugar": "El Club Bar",
+		"direccion": "Honduras 5028",
+		"fecha": "",
+		"horario": "22:00",
+		"precio": 800
+	},
+	{
+		"artista": [
+			"Camaleonpaex",
+			"DJ Jamming"
+		],
+		"imagen": "21-8",
+		"lugar": "El Club Bar",
+		"direccion": "Honduras 5028",
+		"fecha": "21-8",
+		"horario": "22:00",
+		"precio": 800
+	},
+	{
+		"artista": [
+			"Cehache Respira",
+			"Ana Sol y La Candela"
+		],
+		"imagen": "23-8",
+		"lugar": "El Club Bar",
+		"direccion": "Honduras 5028",
+		"fecha": "23-8",
+		"horario": "22:00",
+		"precio": 500
+	},
+	{
+		"artista": [
+			"Sabancaya",
+			"DJ Jamming"
+		],
+		"imagen": "18-9",
+		"lugar": "El Club Bar",
+		"direccion": "Honduras 5028",
+		"fecha": "18-9",
+		"horario": "22:00",
+		"precio": 800
+	},
+	{
+		"artista": [
+			"Buena Cosecha",
+			"DJ Jamming"
+		],
+		"imagen": "2-10",
+		"lugar": "El Club Bar",
+		"direccion": "Honduras 5028",
+		"fecha": "2-10",
+		"horario": "22:00",
+		"precio": 800
+	},
+	{
+		"artista": [
+			"Bemba",
+			"DJ Jamming"
+		],
+		"imagen": "16-10",
+		"lugar": "El Club Bar",
+		"direccion": "Honduras 5028",
+		"fecha": "16-10",
+		"horario": "22:00",
+		"precio": 800
+	},
+	{
+		"artista": [
+			"The Walking Ska",
+			"Preciosa Venus"
+		],
+		"imagen": "18-10",
+		"lugar": "El Club Bar",
+		"direccion": "Honduras 5028",
+		"fecha": "18-10",
+		"horario": "22:00",
+		"precio": 700
+	},
+	{
+		"artista": [
+			"El Capitan Digital Version",
+			"DJ Jamming"
+		],
+		"imagen": "30-10",
+		"lugar": "El Club Bar",
+		"direccion": "Honduras 5028",
+		"fecha": "30-10",
+		"horario": "22:00",
+		"precio": 700
+	}
+]
