@@ -29,6 +29,19 @@ let conteo = document.querySelector('#conteo');
 
 let usuario = new Usuario('juan@gmail.com', 'juancito', 'juan01')
 
+// import data from './data.json';
+
+fetch("./")
+	.then((res) => res.json())
+	.then((data) => {
+		data.forEach((evento) => {
+			eventos.push(new Evento(evento.artista, evento.imagen, evento.lugar, evento.direccion, evento.fecha, evento.horario, evento.precio));
+			console.log(evento.nombre);
+		})
+	})
+	.catch((err) => console.log(err));
+
+
 // eventos.push(new Evento('La Skatomica', '6-2', 'El Club Bar', 'Honduras 5028', '6/2', '22:00', 200));
 eventos.push(new Evento(['Combustión Reggae', 'Sabancaya'], '14-3', 'Shambala House', 'Costa Rica 5673', '14-3', '22:00', 300));
 eventos.push(new Evento('La Skatomica', '20-3', 'El Club Bar', 'Honduras 5028', '6/2', '22:00', 200));
