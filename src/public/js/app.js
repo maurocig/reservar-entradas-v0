@@ -32,8 +32,8 @@ let usuario = new Usuario('juan@gmail.com', 'juancito', 'juan01')
 // eventos.push(new Evento('La Skatomica', '6-2', 'El Club Bar', 'Honduras 5028', '6/2', '22:00', 200));
 eventos.push(new Evento(['Combustión Reggae', 'Sabancaya'], '14-3', 'Shambala House', 'Costa Rica 5673', '14-3', '22:00', 300));
 eventos.push(new Evento('La Skatomica', '20-3', 'El Club Bar', 'Honduras 5028', '6/2', '22:00', 200));
-eventos.push(new Evento('Les Pistaches', '9-4', 'Paseo Inmoral Social Club', 'Cabrera 5100', '9/04', '20:00', 500));
-eventos.push(new Evento('Perro', '16-4', 'Paseo Inmoral Social Club', 'Cabrera 5100', '16/04', '20:00', 500));
+eventos.push(new Evento('Les Pistaches', '9-4', 'Paseo Inmoral Social Club', 'Cabrera 5100', '9-4', '20:00', 500));
+eventos.push(new Evento('Perro', '16-4', 'Paseo Inmoral Social Club', 'Cabrera 5100', '16-04', '20:00', 500));
 eventos.push(new Evento(['Tchanko y Familia', 'DJ Jamming'], '17-4', 'El Club Bar', 'Honduras 5028', '17/04', '22:00', 800));
 eventos.push(new Evento(['Camaleonpaex', 'DJ Jamming'], '21-8', 'El Club Bar', 'Honduras 5028', '21-8', '22:00', 800));
 eventos.push(new Evento(['Cehache Respira', 'Ana Sol y La Candela'], '23-8', 'El Club Bar', 'Honduras 5028', '23-8', '22:00', 500));
