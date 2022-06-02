@@ -4,8 +4,10 @@ console.log(entradasReservadas);
 for (let entrada of entradasReservadas) {
 	console.log(entrada);
 	let divEntrada = document.createElement('div');
-	let h2 = document.createElement('h2');
-	h2.innerText = entrada.nombreEvento;
-	divEntrada.appendChild(h2);
+	divEntrada.innerHTML =
+		`
+			<h2>${entrada.nombreEvento}</h2>
+			<p>Precio: ${entrada.precio}</p>
+		`
 	document.body.appendChild(divEntrada);
 }
