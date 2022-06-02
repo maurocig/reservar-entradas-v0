@@ -54,10 +54,10 @@ fetch('/data.json')
 			form.setAttribute('id', `form-${index}`)
 			form.innerHTML =
 				`
-		<label for="cantidad">Cantidad: </label>
-		<input type="number" name="input-cantidad-${index}" id="input-cantidad-${index}">
-		<button id="botonAgregar">Agregar</button>
-	`
+				<label for="cantidad">Cantidad: </label>
+				<input type="number" name="input-cantidad-${index}" id="input-cantidad-${index}">
+				<button id="botonAgregar">Agregar</button>
+				`
 			divEvento.appendChild(form);
 
 			// Agregar una imagen a cada evento
