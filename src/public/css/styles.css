@@ -1,3 +1,25 @@
+.grid-container {
+  margin: 90px 10%;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr;
+}
+.grid-container .card img {
+  max-height: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media (min-width: 800px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1200px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
 body {
   background-color: rgb(54, 54, 54) !important;
   font-family: "Mukta", sans-serif;
@@ -19,14 +41,16 @@ h2 {
 
 #eventos-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   grid-template-rows: 1fr;
 }
 #eventos-grid .div-evento {
+  position: relative;
   width: 100%;
   height: 100%;
   /* height: 400px; */
+  border-radius: 8px;
   overflow: hidden;
 }
 #eventos-grid .div-evento img {
@@ -38,6 +62,21 @@ h2 {
 }
 #eventos-grid .div-evento form {
   position: absolute;
+  bottom: 12px;
+  right: 20px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+#eventos-grid .div-evento form .label-cantidad {
+  color: white;
+  font-size: 1.3rem;
+  text-shadow: 2px 2px 4px rgb(20, 20, 20);
+}
+#eventos-grid .div-evento form .select-cantidad {
+  max-width: 50px;
+  display: inline;
+  margin-right: 10px;
 }
 #eventos-grid .div-evento button {
   /* display: none; */
@@ -79,4 +118,10 @@ h2 {
   -o-object-fit: cover;
      object-fit: cover;
   height: 100%;
+}
+
+@media (min-width: 700px) {
+  #eventos-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }/*# sourceMappingURL=styles.css.map */

@@ -51,14 +51,27 @@ fetch('/data.json')
 
 			// Agregar un form para cada evento
 			let form = document.createElement('form');
-			form.setAttribute('id', `form-${index}`)
+			form.setAttribute('id', `form-${index}`);
+			form.classList.add('form-group');
+			form.classList.add('form-inline');
 			form.innerHTML =
 				`
-				<label for="cantidad">Cantidad: </label>
-				<input type="number" name="input-cantidad-${index}" id="input-cantidad-${index}">
-				<button id="botonAgregar">Agregar</button>
+				<label for="cantidad" class="label-cantidad">Cantidad: </label>
+					<select class="form-control select-cantidad" name="input-cantidad-${index} d-inline" id="input-cantidad-${index}">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+					</select>
+				<button class="btn btn-primary btn-agregar" type="submit">Agregar</button>
 				`
 			divEvento.appendChild(form);
+
 
 			// Agregar una imagen a cada evento
 			let img = document.createElement('img');
@@ -74,13 +87,14 @@ fetch('/data.json')
 				let cantidad = input.value;
 				let subtotal = calcularPrecio(cantidad, evento.precio);
 				for (let i = 0; i < cantidad; i += 1) {
-					let nuevaEntrada = crearEntrada(evento.nombre, evento.precio, usuario.username, evento.getId());
-					nuevaEntrada.makeId();
+					console.log(evento.fecha);
+					let nuevaEntrada = crearEntrada(evento.nombre, evento.precio, usuario.username, evento.getId(), evento.fecha, evento.horario, evento.direccion, evento.imagen);
+					nuevaEntrada.id = nuevaEntrada.makeId();
 					entradas.push(nuevaEntrada);
 					total += evento.precio;
 				}
-				let misEntradas = entradas;
-				localStorage.setItem('Entradas Guardadas', JSON.stringify(misEntradas));
+
+				localStorage.setItem('Entradas Guardadas', JSON.stringify(entradas));
 				localStorage.setItem('Total', JSON.stringify(total));
 				console.log(`${cantidad} entradas para ${evento.nombre}......$${subtotal}`);
 				// console.log(entradas);
@@ -123,6 +137,7 @@ function reservar() {
 	limpiar();
 	localStorage.setItem('Entradas Reservadas', JSON.stringify(entradasReservadas));
 	usuario.entradas.push(...entradasReservadas);
+
 	console.log(entradasReservadas);
 	Swal.fire(
 		'Tus entradas fueron reservadas.',

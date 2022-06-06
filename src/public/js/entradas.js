@@ -1,18 +1,19 @@
 const serviceCharge = 50;
 let subtotal;
 
-const Entrada = function (nombreEvento, precio, username, eventoId) {
+const Entrada = function (nombreEvento, precio, username, eventoId, fecha, horario, direccion, imagen) {
 	this.nombreEvento = nombreEvento;
 	this.precio = precio;
 	this.username = username;
 	this.eventoId = eventoId;
+	this.fecha = fecha;
+	this.horario = horario;
+	this.direccion = direccion;
+	this.imagen = imagen;
 	let id = 1;
-	this.getId = function () {
-		return id;
-	}
-	this.makeId = function () {
-		id = Math.floor(Math.random() * 1000000);
-	}
+	this.id = id;
+	this.getId = () => id;
+	this.makeId = () => id = Math.floor(Math.random() * 1000000);
 }
 
 function calcularPrecio(cantidad, precio) {
@@ -21,8 +22,8 @@ function calcularPrecio(cantidad, precio) {
 	return subtotal;
 }
 
-function crearEntrada(nombreEvento, precio, username, eventoId) {
-	let nuevaEntrada = new Entrada(nombreEvento, precio, username, eventoId);
+function crearEntrada(nombreEvento, precio, username, eventoId, fecha, horario, direccion, imagen) {
+	let nuevaEntrada = new Entrada(nombreEvento, precio, username, eventoId, fecha, horario, direccion, imagen);
 	return nuevaEntrada;
 }
 

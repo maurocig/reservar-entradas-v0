@@ -2,7 +2,7 @@
 let fechas = ['14-3', '20-3', '9-4', '16-4', '17-4', '21-8', '23-8', '18-9', '2-10', '16-10', '18-10', '30-10', '1-11', '13-11', '27-11', '29-11'];
 
 const Evento = function (artista, imagen, lugar, direccion, fecha, horario, precio) {
-	this.nombre = `${artista} en ${lugar}`;
+	this.nombre = `${artista} en ${lugar}`
 	this.artista = artista;
 	this.imagen = imagen;
 	this.lugar = lugar;
