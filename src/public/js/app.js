@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	entradasGuardadas = JSON.parse(localStorage.getItem('Entradas Guardadas')) || [];
 	total = JSON.parse(localStorage.getItem('Total')) || 0;
 	entradas = entradasGuardadas;
-	if (entradas.length > 0) {
-		conteo.innerText = `Carrito: ${entradas.length} entradas .... $${total}`;
-	} else {
-		conteo.innerText = 'Agregá tus entradas para verlas en el carrito.'
-	}
+	/* if (entradas.length > 0) { */
+	/* 	conteo.innerText = `Carrito: ${entradas.length} entradas .... $${total}`; */
+	/* } else { */
+	/* 	conteo.innerText = 'Agregá tus entradas para verlas en el carrito.' */
+	/* } */
 })
 
 // Variables
@@ -28,6 +28,8 @@ let eventosGrid = document.querySelector('#eventos-grid');
 let conteo = document.querySelector('#conteo');
 
 let usuario = new Usuario('juan@gmail.com', 'juancito', 'juan01')
+
+let numeroCarrito = document.querySelector('#numero-carrito');
 
 // import data from './data.json';
 
@@ -92,21 +94,32 @@ fetch('/data.json')
 					nuevaEntrada.id = nuevaEntrada.makeId();
 					entradas.push(nuevaEntrada);
 					total += evento.precio;
+					numeroCarrito.innerHTML = entradas.length;
 				}
 
 				localStorage.setItem('Entradas Guardadas', JSON.stringify(entradas));
 				localStorage.setItem('Total', JSON.stringify(total));
-				console.log(`${cantidad} entradas para ${evento.nombre}......$${subtotal}`);
 				// console.log(entradas);
+
 				if (entradas.length > 0) {
 					conteo.innerText = `Carrito: ${entradas.length} entradas .... $${total}`;
 				} else {
 					conteo.innerText = 'Agregá tus entradas para verlas en el carrito.'
 				}
+
+
 			});
 		}
-	}
-	)
+	})
+
+const carrito = document.querySelector('#carrito');
+carrito.addEventListener('click', () => {
+	btnReservar.setAttribute('style', 'display:inline');
+	btnReset.setAttribute('style', 'display:inline');
+	conteo.setAttribute('style', 'display:inline');
+
+})
+
 
 
 
@@ -124,6 +137,7 @@ function limpiar() {
 	localStorage.removeItem('Entradas Guardadas');
 	localStorage.removeItem('Total');
 	conteo.innerText = 'Agregá tus entradas para verlas en el carrito.'
+	numeroCarrito.innerHTML = entradas.length;
 }
 
 let btnReservar = document.querySelector('#btn-reservar');
