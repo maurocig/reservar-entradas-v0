@@ -1,0 +1,27 @@
+body {}
+
+.grid-container {
+	margin: 90px 10%;
+	display: grid;
+	gap: 40px;
+	grid-template-columns: 1fr;
+
+	.card {
+		img {
+			max-height: 400px;
+			object-fit: cover;
+		}
+	}
+}
+
+@media (min-width: 800px) {
+	.grid-container {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media (min-width: 1200px) {
+	.grid-container {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
